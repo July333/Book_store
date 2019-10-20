@@ -7,11 +7,13 @@ function Form(props) {
     const onNumChange = () => props.changeNum(numnew);
 
     return (
-        <div>
-            <input onChange={(e) => { setNumnew(e.target.value) }} value={numnew}></input>
-            <button onClick={onNumChange}>Set num</button>
+        <div className="form-group">
+            <div className="input-group mb-3">
+                <input type="text" className="form-control" onChange={(e) => { setNumnew(e.target.value) }} value={numnew}></input>
+                <button className="btn btn-primary" onClick={onNumChange}>Set num</button>
+            </div>
         </div>
     )
-  }
-  
-  export default Form;
+}
+
+export default Form;

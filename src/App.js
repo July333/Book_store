@@ -10,12 +10,14 @@ function App() {
 
   const changeNumEvent = (num) => {
     setNum(num);
-}
+  }
 
   return (
     <div className="container">
-      <h1>My book store</h1>
-      <Form changeNum={changeNumEvent} num={num}/>
+      <div className="jumbotron">
+        <h1 className="display-3">My book store</h1>
+      <Form changeNum={changeNumEvent} num={num} />
+      </div>
       <BookList num={num} />
     </div>
   );
