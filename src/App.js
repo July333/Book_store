@@ -6,11 +6,17 @@ import BookList from './BookList';
 import Form from './Form';
 
 function App() {
+  const [num, setNum] = useState(5);
+
+  const changeNumEvent = (num) => {
+    setNum(num);
+}
+
   return (
     <div className="container">
       <h1>My book store</h1>
-      <Form />
-      <BookList />
+      <Form changeNum={changeNumEvent} num={num}/>
+      <BookList num={num} />
     </div>
   );
 }
