@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
+import { container, ACTIONS } from './store';
 
 function Book(props) {
     const imagesBaseUrl = 'https://kob-e.github.io/react-book-store/books-data/';
-    //<div>
-    //    <h2>Title: {props.title}</h2>
-    //    <div>Author: {props.author} </div>
-    //    <div><img alt='picture' src={imagesBaseUrl + props.imageLink} /></div>
-    //</div>
-               // <a href="#" class="card-link">Card link</a>
+
+    const addBook = () => {
+        container.dispatch(ACTIONS.ADD, {
+            book: props
+        })
+    }
+
     return (
         <div className="col-auto card border-info mb-3" style={{width: '20rem', height: '33rem'}}>
             <div className="card-header">Title: {props.title}</div>
             <div className="card-body">
                 <h4 className="card-title">Author: {props.author}</h4>
-                <p className="card-text">Price </p>
+                <p className="card-text">Price: {props.price}</p>
             </div>
-            <img style={{height: '300px', width: '100%', display: 'block'}} src={imagesBaseUrl + props.imageLink} alt="Card image" />
+            <img style={{height: '300px', width: '100%', display: 'block'}} src={imagesBaseUrl + props.imageLink} alt="Card image" />       
+            <button className="btn btn-success" onClick={addBook}>Add</button>
         </div>
     );
 }
